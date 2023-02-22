@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>
+        QUẢN LÝ THÔNG TIN TOUR DU LỊCH
+    </title>
+    <link href="./css/templatemo-style.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="./js/controller.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="/css/search.css">
+    <link rel="stylesheet" href="/models/data.js">
+</head>
+
+<body ng-app="app">
+    <div class="container-fluid" ng-controller="control">
+        <%- include('./layout/header1'); -%>
+            <main ng-controller="filter">
+                <header class="row tm-welcome-section">
+                    <h2 class="col-12 text-center tm-section-title">THÔNG TIN TOUR</h2>
+                </header>
+
+                <div class="tm-paging-links">
+                    <nav>
+                        <ul>
+                            <li class="tm-paging-item"><a ng-click="filter('')" class="tm-paging-link active">All</a></li>
+                            <li class="tm-paging-item"><a ng-click="filter('pizza')" class="tm-paging-link">TOUR MIỀN TÂY</a></li>
+                            <li class="tm-paging-item"><a ng-click="filter('salad')" class="tm-paging-link">TOUR MIỀN BẮC</a></li>
+                            <li class="tm-paging-item"><a ng-click="filter('noodle')" class="tm-paging-link">TOUR MIỀN TRUNG</a></li>
+                            <!-- <li class="tm-paging-item"><a ng-click="filter('cake')" class="tm-paging-link">Cake</a></li> -->
+                        </ul>
+                    </nav>
+                </div>
+
+                <!-- Gallery -->
+                <div class="row tm-gallery">
+                    <div id="tm-gallery-page-pizza" class="tm-gallery-page">
+
+                        <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item" ng-repeat="item in products| filter: {type:dataFilter }">
+                            <a href="/chitiet/{{item._id}}" style="text-decoration: none;">
+                                <figure>
+                                    <img src="img/gallery/{{item.img}}" alt="Image" style="width: 250px; height: 250px;" />
+                                    <figcaption>
+                                        <h4 class="tm-gallery-title">
+                                            {{item.name | uppercase}}
+                                        </h4>
+                                        <!-- <p class="tm-gallery-description">
+                                            {{item.description | uppercase}}
+                                        </p>
+                                        <p class="tm-gallery-des">
+                                            {{item.des | uppercase}}
+                                        </p> -->
+
+                                        <p class="tm-gallery-price">
+                                            {{item.price |currency}}
+                                        </p>
+
+                                    </figcaption>
+                                </figure>
+                            </a>
+                        </article>
+                    </div>
+                </div>
+            </main>
+            <%- include('./layout/footer'); -%>
+    </div>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/parallax.min.js"></script>
+
+
+
+</body>
+
+</html>

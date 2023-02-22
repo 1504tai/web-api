@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Bentham|Playfair+Display|Raleway:400,500|Suranna|Trocchi" rel="stylesheet">
+    <link rel="stylesheet" href="/css/chitiet.css">
+</head>
+
+<body>
+    <div class="container">
+        <form action="/add/<%=data.id%>/<%=data.name%>/<%=data.price%>/<%=data.img%>/<%=data.description%>/<%=data.des%>" method="POST">
+            <div class="wrapper">
+                <div class="product-img">
+                    <img src="/img/gallery/<%=data.img%>" height="420" width="327">
+                </div>
+                <div class="product-info">
+                    <div class="product-text">
+                        <h1>
+                            <%=data.name%>
+                        </h1>
+                        <h2>
+                            <%=data.description%>
+                        </h2>
+                        <h2>
+                            <%=data.des%>
+                        </h2>
+                        <!-- <input type="number" name="qty" id="qty" min="1" max="100" value="1"> -->
+                        <h1><span><%= data.price%></span>$</h1>
+                    </div>
+
+                    <div class="product-price-btn">
+                        <!-- <button type="submit">buy now</button> -->
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+</body>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Admin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: rgb(255, 255, 255);
+        }
+        
+        .topnav {
+            overflow: hidden;
+            background-color: rgb(236, 137, 130);
+        }
+        
+        .topnav a {
+            float: left;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+        
+        .topnav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        
+        .topnav a.active {
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+    <style>
+        @media only screen and (min-device-width: 768px) {
+            .form {
+                padding: 5% 10%;
+                background-color: rgb(187, 243, 235);
+                margin: auto;
+            }
+        }
+        
+        h1,
+        p {
+            text-align: center;
+        }
+        
+        input,
+        textarea {
+            width: 100%;
+        }
+        
+        button {
+            width: 100%;
+        }
+        
+        textarea {
+            height: 200px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+    <div class="container">
+        <div class="topnav">
+            <a class="active" href="/">Home</a>
+            <a href="admin">Post</a>
+            <a href="listProduct">TOUR</a>
+        </div>
+        <div class="form">
+            <hr>
+            <h3>
+                Edit TOUR
+            </h3>
+            <hr>
+            <form id="reused_form" method="POST" action="/edit/<%= data.id %>">
+                <label for="name">Name TOUR:</label>
+                <input id="name" type="text" name="name" required maxlength="50" placeholder="<%= data.name %>">
+
+                <label for="name">
+                   <select name="type" id="name">
+                <option value="pizza ">TOUR MIỀN TÂY</option>
+                <option value="salad ">TOUR MIỀN BẮC</option>
+                <option value="noodle ">TOUR MIỀN TRUNG</option>
+                <!-- <option value="cake ">Cake</option> -->
+                </select>
+                </label>
+                <label for="name ">Price:</label>
+                <input id="name " type="number " name="price" placeholder=" <%= data.price %> " required>
+                <label for="name"> Image Upload: <%= data.img %></label>
+                <input type="file" class="form-control" id="image" name="img">
+                <button class="button-primary " type="submit ">Edit</button>
+            </form>
+
+        </div>
+
+    </div>
+</body>
+
+</html>

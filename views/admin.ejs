@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Admin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="./css/form.css">
+    <link rel="stylesheet" href="./css/admin_nav.css">
+
+</head>
+
+<body>
+
+
+    <div class="container-fluid">
+        <div class="topnav">
+            <a href="home1">Home</a>
+            <a href="admin">Post</a>
+            <a href="listProduct">TOUR</a>
+        </div>
+        <div class="form">
+
+            <hr>
+            <h1>
+                Post tour
+            </h1>
+            <hr>
+            <form id="reused_form" method="POST" action="/post">
+                <label for="name">Name tour:</label>
+                <input id="name" type="text" name="name" required maxlength="50">
+
+                <label for="message">ĐIỂM XUẤT PHÁT  &  ĐIỂM ĐẾN :</label>
+                <textarea id="message" name="description" rows="10" maxlength="6000" required></textarea>
+                <label for="message">Mô tả</label>
+                <textarea id="message" name="des" rows="10" maxlength="6000" required></textarea>
+                <label for="name">Type: 
+                   <select name="type" id="name">
+                       <option value="pizza">TOUR MIỀN TÂY</option>
+                       <option value="salad">TOUR MIỀN BẮC</option>
+                       <option value="noodle">TOUR MIỀN TRUNG</option>
+                       <!-- <option value="Cake">Cake</option> -->
+                   </select>
+                </label>
+
+                <label for="name">Price:</label>
+                <input id="name" type="number" name="price" min="0" placeholder="0" required>
+                <label for="name"> Image Upload:</label>
+                <input type="file" class="form-control" id="image" name="img">
+                <button class="button-primary" type="submit">Post</button>
+            </form>
+
+        </div>
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Admin</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="./css/admin_nav.css">
+
+
+
+</head>
+
+<body ng-app="myapp">
+    <div class="container-fluid" ng-controller="control">
+        <div class="topnav">
+            <a class="active" href="home">Home</a>
+            <a href="admin">Post</a>
+            <a href="listProduct">TOUR</a>
+        </div>
+        <table id="cart" style="width: 90%; padding: 5%;" class="table table-hover table-condensed">
+            <thead>
+                <tr>
+                    <th style="width:1%"></th>
+                    <th style="width:5%">STT</th>
+                    <th style="width:10%">Tên tour</th>
+                    <th style="width:20%">Xuất phát & Điểm đến</th>
+                    <th style="width:10%">Mô tả</th>
+                    <th style="width:7%">Giá/người</th>
+                    <th style="width:1%"></th>
+                    <th style="width:1%"></th>
+                </tr>
+            </thead>
+            <tbody ng-repeat="item in products">
+                <tr>
+                    <td></td>
+                    <td>{{$index +1}}</td>
+                    <td data-th="Product">
+                        <div class="row">
+                            <div class="col-sm-10">
+                                <h6 class="nomargin">{{item.name | uppercase}}</h6>
+
+                            </div>
+                        </div>
+                    </td>
+                    <td data-th="Price" id="mota">{{item.description | uppercase}}</td>
+                    <td data-th="Price" id="mota">{{item.des | uppercase}}</td>
+                    <td data-th="Price">{{item.price | currency}}</td>
+
+
+                    <td class="actions">
+                        <a href="/delete/{{item._id}}"> <button><i class="fa fa-trash fa-2x"></i></button></a>
+
+                    </td>
+                    <td class="actions">
+                        <a href="/edit/{{item._id}}"><button><i class="fa fa-edit fa-2x"></i></button></a>
+                    </td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+        <script>
+            var myapp = angular.module('myapp', []);
+            myapp.controller('control', function($scope, $http) {
+                $http.get('api/product').then(function(res) {
+                    console.log(res)
+                    $scope.products = res.data
+                    console.log(res.data)
+                });
+            });
+        </script>
+    </div>
+</body>
+
+</html>
